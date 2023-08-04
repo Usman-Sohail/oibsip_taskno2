@@ -29,30 +29,6 @@ function setActiveLink() {
 document.addEventListener("scroll", setActiveLink);
 
 
-const resumeButton = document.getElementById("resumeButton");
-
-resumeButton.addEventListener("click", () => {
-  const resumeImageUrl = "resume.png";
-    window.open(resumeImageUrl, "_blank");
-    newTab.document.write(`<img src="${resumeImageUrl}" style="width: 50%; height: auto ;">`);
-
-
-  
-});
-
-const downloadButton = document.getElementById("downloadButton");
-const downloadLink = document.getElementById("downloadLink");
-
-
-
-downloadButton.addEventListener("click", () => {
-  const resumeImageUrl = "resume.png";
-
-  downloadLink.href = resumeImageUrl;
-  downloadLink.download = "resume.png";
-
-  downloadLink.click();
-});
 
 
 
@@ -79,4 +55,19 @@ const sectionObserver = new IntersectionObserver(animateSections, options);
 
 sectionsToAnimate.forEach((section) => {
     sectionObserver.observe(section);
+});
+// resume funtioning
+const resumeButton = document.getElementById("resumeButton");
+const downloadButton = document.getElementById("downloadButton");
+const downloadLink = document.getElementById("downloadLink");
+const resumePdfUrl = "MyResume.pdf";
+
+resumeButton.addEventListener("click", () => {
+  window.open(resumePdfUrl, "_blank");
+});
+
+downloadButton.addEventListener("click", () => {
+  downloadLink.href = resumePdfUrl;
+  downloadLink.download = "resume.pdf";
+  downloadLink.click();
 });
